@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Clock</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .clock-box {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem rgba(255, 245, 245, 0.2);
+      }
+      .clock-time {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #0d6efd;
+      }
+    </style>
+    <script>
+      let a;
+      let time;
+      let date; 
+      const options = { 
+        weekday: "long", 
+        year: "numeric", 
+        month: "long", 
+        day: "numeric", 
+      }; 
+      setInterval(() => { 
+        a = new Date(); 
+        date = a.toLocaleDateString(undefined, options);
+        time = a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds(); 
+        document.getElementById("time").innerHTML = time + "<br>on " + date; 
+      }, 1000); 
+    </script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">🕒 LiveClock</a>
+        <div>
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item mx-2">
+              <a class="nav-link active" href="#">Clock</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero / Clock Section -->
+    <main class="container d-flex flex-grow-1 justify-content-center align-items-center">
+      <div class="clock-box text-center p-5">
+        <h1 class="mb-4">Current Time</h1>
+        <div id="time"></div>
+        <p class="mt-3">Your personal live clock powered by JavaScript.</p>
+        <!-- <button class="btn btn-primary btn-lg mt-3">Explore World Time</button> -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3 mt-auto">
+      <small>© 2025 LiveClock. All Rights Reserved.</small>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
+</html>
